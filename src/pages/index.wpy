@@ -1,0 +1,83 @@
+<style lang="less">
+  .container{
+    margin-top:80rpx;
+  }
+  .container_pro li{
+    display: block;
+    width:400rpx;
+    height:80rpx;
+    background-color:#409EFF;
+    border-radius:10rpx;
+    margin-top:50rpx;
+    color:#ffffff;
+    text-align:center;
+    line-height:80rpx;
+    font-size:34rpx;
+  }
+  .container_pro li:active{
+    background-color:#A0CFFF;
+  }
+</style>
+<template>
+  <view class="container">
+    <ul class="container_pro">
+      <li @tap='demand'>合作社（需求）</li>
+      <li @tap='littleChicken'>鸡苗场</li>
+      <li>合作社（签收）</li>
+      <li>养殖户</li>
+      <li>贸易商</li>
+      <li>合作社（收款）</li>
+      <li @tap='template'>模板</li>
+    </ul>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import { connect } from 'wepy-redux'
+  import testMixin from '../mixins/test'
+  @connect({
+    num (state) {
+      return state.counter.num
+    },
+    asyncNum (state) {
+      return state.counter.asyncNum
+    },
+    sumNum (state) {
+      return state.counter.num + state.counter.asyncNum
+    }
+  })
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: '中科院视频安全防伪追溯系统'
+    }
+    components = {
+    }
+
+    mixins = [testMixin]
+
+    data = {
+    }
+
+    computed = {
+    }
+
+    methods = {
+      demand () {
+        wepy.navigateTo({
+          url: '/pages/demand?id=' + 12
+        })
+      },
+      littleChicken () {
+        wepy.navigateTo({
+          url: '/pages/littleChichen?id=' + 12
+        })
+      },
+      template () {
+        wepy.navigateTo({
+          url: '/pages/template?id=' + 12
+        })
+      }
+    }
+  }
+</script>

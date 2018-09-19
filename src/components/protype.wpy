@@ -1,0 +1,43 @@
+<style type="less">
+  .mylist{
+    background-color: #ffffff;
+    border: 1rpx solid #999999;
+    margin-bottom: 20rpx;
+    width: 640rpx;
+  }
+  .mylist text{
+  }
+  .listName{
+    padding-right: 150rpx;
+  }
+  .listNameT{
+      padding-right: 189rpx;
+    }
+</style>
+<template>
+  <view class="group">
+     <block wx:for-items="{{listArr}}" wx:for-index="index" wx:for-item="item" wx:key="id" class="items">
+       <view class="mylist">
+         <view><text class="listName">走地鸡</text><text>10</text></view>
+         <view><text class="listName">普通鸡</text><text>90</text></view>
+         <view><text class="listNameT">时间</text><text>2018/04/16 22:47</text></view>
+       </view>
+     </block>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class Group extends wepy.component {
+    data = {
+      listArr: [1, 2]
+    }
+    props = {
+    }
+
+    components = {
+    }
+    methods = {
+    }
+  }
+</script>
