@@ -1,28 +1,56 @@
 <style type="less">
-  .mylist{
+  .mylist, .myTittle{
     background-color: #ffffff;
     border: 1rpx solid #999999;
     margin-bottom: 20rpx;
     width: 640rpx;
+    padding: 30rpx;
   }
   .mylist text{
+    font-size: 35rpx;
+    font-weight: 600;
+    font-family: "微软雅黑";
+    margin-top: 20rpx;
   }
-  .listName{
-    padding-right: 150rpx;
+  .mylist text{
+    margin-top: 20rpx;
   }
   .listNameT{
-      padding-right: 189rpx;
-    }
+    margin-left: 182rpx;
+  }
+  .listName{
+    margin-left: 150rpx;
+  }
+  .myTittle{
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+  .myTittle_status{
+    font-size: 25rpx;
+    float: right;
+    width: 100rpx;
+    border-radius: 20rpx;
+    border: 1px solid green;
+    color: green;
+    text-align: center;
+  }
 </style>
 <template>
   <view class="group">
-     <block wx:for-items="{{listArr}}" wx:for-index="index" wx:for-item="item" wx:key="id" class="items">
-       <view class="mylist">
-         <view><text class="listName">走地鸡</text><text>10</text></view>
-         <view><text class="listName">普通鸡</text><text>90</text></view>
-         <view><text class="listNameT">时间</text><text>2018/04/16 22:47</text></view>
-       </view>
-     </block>
+    <block wx:for-items="{{listArr}}" wx:for-index="index" wx:for-item="item" wx:key="id" class="items">
+      <view class="myTittle" wx:if="{{ title }}">
+        <text class="myTittle_com">XXXX合作社</text>
+        <text class="myTittle_status">未接单</text>
+      </view>
+      <view class="mylist">
+        <view><text>走地鸡</text><text class="listName">10</text></view>
+        <view><text>普通鸡</text><text class="listName">90</text></view>
+        <view><text>时间</text><text class="listNameT">2018/04/16 22:47</text></view>
+      </view>
+    </block>
+    <view class="listCoin">
+
+    </view>
   </view>
 </template>
 <script>
@@ -30,7 +58,8 @@
 
   export default class Group extends wepy.component {
     data = {
-      listArr: [1, 2]
+      listArr: [1, 2],
+      title: 1
     }
     props = {
     }

@@ -2,7 +2,10 @@
 </style>
 <template>
   <view class="container">
-    <h1>鸡苗场</h1>  
+    <h1>鸡苗场</h1>
+    <panel>
+      <protype></protype>
+    </panel>
   </view>
 </template>
 
@@ -10,6 +13,7 @@
   import wepy from 'wepy'
   import { connect } from 'wepy-redux'
   import testMixin from '../mixins/test'
+  import Protype from '../components/protype'
   @connect({
     num (state) {
       return state.counter.num
@@ -26,6 +30,7 @@
       navigationBarTitleText: '中科院视频安全防伪追溯系统'
     }
     components = {
+      protype: Protype
     }
 
     mixins = [testMixin]
