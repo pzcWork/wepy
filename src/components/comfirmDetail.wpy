@@ -1,0 +1,118 @@
+<style type="less">
+  .com_all{
+    background-color: #ffffff;
+    width: 700rpx;
+    margin-top: 40rpx;
+    color: #000000;
+  }
+  .com_most_tittle{
+    height: 120rpx;
+    padding-left: 60rpx;
+    line-height: 156rpx;
+    border-bottom: 2rpx solid #409EFF;
+    font-weight: 600;
+    font-size: 36rpx;
+  }
+  .com_most_detl{
+    height: 188rpx;
+  }
+  .com_most_detl view{
+    margin-top: 40rpx;
+    padding-left: 40rpx;
+  }
+  .com_most_text{
+    display: inline-block;
+    width: 180rpx;
+    margin-right: 60rpx;
+    color: #999999;
+  }
+  .com_most_date{
+    font-weight: 600;
+    font-size: 36rpx;
+  }
+  .com_status{
+    background-color: #ffffff;
+    margin-top: 60rpx;
+    padding: 0 40rpx 40rpx 120rpx;
+  }
+  .status_item{
+    height: 120rpx;
+    padding: 40rpx 0 30rpx 0;
+    border-bottom: 2rpx solid #409EFF;
+    position: relative;
+  }
+  .status_item view{
+    margin-bottom: 40rpx;
+    color: #999999;
+  }
+  .status_item_date{
+    color: #000000 !important;
+  }
+  .status_item_circle{
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 20rpx;
+    background-color: #409EFF;
+    position: absolute;
+    top:0;
+    left: -62rpx;
+  }
+  .status_item_line{
+    width: 2rpx;
+    height: 150rpx;
+    background-color: #409EFF;
+    position: absolute;
+    top:40rpx;
+    left: -42rpx;
+  }
+</style>
+<template>
+  <view class="com_all">
+    <view class="com_most">
+      <view class="com_most_tittle">合作社</view>
+      <view class="com_most_detl">
+        <view>
+          <text class="com_most_text">养殖数量</text>
+          <text class="com_most_date">40</text>
+        </view>
+        <view>
+          <text class="com_most_text">养殖天数</text>
+          <text class="com_most_date">150天</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="com_status">
+      <view class="com_most_tittle">当前状态</view>
+      <block wx:for-items="{{statusArr}}" wx:for-index="index" wx:for-item="item" wx:key="id" class="items">
+        <view class="status_item">
+          <view class="status_item_date">2018/11/23</view>
+          <view>
+            XX机构提出需求：100只走地鸡
+          </view>
+          <view class="status_item_circle"></view>
+          <view class="status_item_line"></view>
+        </view>
+      </block>
+    </view>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class Group extends wepy.component {
+    data = {
+      statusArr:[0, 1, 2, 3, 4, 5, 6]
+    };
+    props = {
+    };
+
+    components = {
+    };
+    methods = {
+    };
+    onLoad () {
+      console.log(typeof this.tittle)
+    }
+  }
+</script>

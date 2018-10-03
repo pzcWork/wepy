@@ -1,25 +1,28 @@
 <style lang="less">
+
 </style>
 <template>
   <view class="container">
     <panel>
-          <protype tittle=''></protype>
+      <comfirmDetail></comfirmDetail>
+
     </panel>
   </view>
 </template>
 
 <script>
   import wepy from 'wepy'
-  import Protype from '../components/protype'
+  import ComfirmDetail from '../components/comfirmDetail'
   export default class Index extends wepy.page {
     config = {
-      navigationBarTitleText: '详情'
+      navigationBarTitleText: '贸易商'
     }
     components = {
-      protype: Protype
+      comfirmDetail: ComfirmDetail
     }
 
     data = {
+      title: 1
     }
 
     computed = {

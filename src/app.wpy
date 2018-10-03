@@ -1,77 +1,122 @@
 <style lang="less">
-  .container {
+  page {
+    background-color: #F8F8F8;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
+    font-size: 32rpx;
+    line-height: 1.6;
+  }
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*justify-content: space-between;*/
+  box-sizing: border-box;
+}
+  .signIn_myInput{
+    border: 2rpx solid #409EFF;
+    height: 260rpx;
+    position: relative;
+    padding: 40rpx 0 20rpx 40rpx;
+  }
+  .signIn_input{
+    width: 180rpx;
+    /*outline:#409EFF solid 2rpx;*/
+    border: 2rpx solid #409EFF;
+    padding-left: 40rpx;
+    border-radius: 10rpx;
+    position: absolute;
+    left: 160rpx;
+    top: 40rpx;
+  }
+  .signIn_btn{
+    width: 270rpx;
+    color: #ffffff !important;
+    background-color: #409EFF !important;
+    position: absolute;
+    right: 30rpx;
+    top: 40rpx;
+  }
+  .signIn_btn:active{
+    background-color: #999999 !important;
+  }
+  .signIn_time{
+    margin-top: 70rpx;
+    color: #999999;
+    font-size: 32rpx;
+  }
+  .signIn_time_in{
+    color: #000000;
+    font-weight: 600;
   }
 </style>
 
 <script>
-  import wepy from 'wepy'
-  import 'wepy-async-function'
+import wepy from 'wepy'
+import 'wepy-async-function'
 
-  import { setStore } from 'wepy-redux'
-  import configStore from './store'
+import { setStore } from 'wepy-redux'
+import configStore from './store'
 
-  const store = configStore()
-  setStore(store)
+const store = configStore()
+setStore(store)
 
-  export default class extends wepy.app {
-    config = {
-      pages: [
-        'pages/index',
-        'pages/demand',
-        'pages/template',
-        'pages/littleChichen'
-      ],
-      window: {
-        backgroundTextStyle: 'light',
-        navigationBarBackgroundColor: '#fff',
-        navigationBarTitleText: 'WeChat',
-        navigationBarTextStyle: 'black'
-      }
+export default class extends wepy.app {
+  config = {
+    pages: [
+      'pages/index',
+      'pages/demand',
+      'pages/template',
+      'pages/signIn',
+      'pages/littleChichen',
+      'pages/farmers',
+      'pages/traders'
+    ],
+    window: {
+      backgroundTextStyle: 'light',
+      navigationBarBackgroundColor: '#fff',
+      navigationBarTitleText: 'WeChat',
+      navigationBarTextStyle: 'black'
     }
+  }
 
-    globalData = {
-      userInfo: null
-    }
+  globalData = {
+    userInfo: null
+  }
 
-    constructor () {
-      super()
-      this.use('requestfix')
-    }
+  constructor () {
+    super()
+    this.use('requestfix')
+  }
 
-    onLaunch() {
-      this.testAsync()
-    }
+  onLaunch() {
+    this.testAsync()
+  }
 
-    sleep (s) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
+  sleep (s) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
         resolve('promise resolved')
       }, s * 1000)
     })
-    }
-
-    async testAsync () {
-      const data = await this.sleep(3)
-      console.log(data)
-    }
-
-    getUserInfo(cb) {
-      const that = this
-      if (this.globalData.userInfo) {
-        return this.globalData.userInfo
-      }
-      wepy.getUserInfo({
-        success (res) {
-          that.globalData.userInfo = res.userInfo
-          cb && cb(res.userInfo)
-        }
-      })
-    }
   }
+
+  async testAsync () {
+    const data = await this.sleep(3)
+    console.log(data)
+  }
+
+  getUserInfo(cb) {
+    const that = this
+    if (this.globalData.userInfo) {
+      return this.globalData.userInfo
+    }
+    wepy.getUserInfo({
+      success (res) {
+        that.globalData.userInfo = res.userInfo
+        cb && cb(res.userInfo)
+      }
+    })
+  }
+}
 </script>

@@ -1,0 +1,41 @@
+<style lang="less">
+  .signIn_myInput{
+    height: 80rpx;
+    border: none;
+  }
+</style>
+<template>
+  <view class="container">
+    <panel>
+      <comfirmDetail></comfirmDetail>
+      <view class="signIn_myInput">
+        <text>数量</text>
+        <input class="signIn_input" type="number" placeholder="数量" />
+        <button class="signIn_btn" type="default" size="mini">提交预售</button>
+      </view>
+    </panel>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import ComfirmDetail from '../components/comfirmDetail'
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: '养殖场'
+    }
+    components = {
+      comfirmDetail: ComfirmDetail
+    }
+
+    data = {
+      title: 1
+    }
+
+    computed = {
+    }
+
+    methods = {
+    }
+  }
+</script>

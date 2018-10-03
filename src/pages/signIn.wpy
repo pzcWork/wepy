@@ -1,0 +1,49 @@
+<style lang="less">
+  .complete{
+    border: 1px solid red;
+    color: red;
+  }
+</style>
+<template>
+  <view class="container">
+    <panel>
+      <protype tittle='2'></protype>
+      <view>
+        <view class="myTittle signIn_tittle">
+          <text class="myTittle_com">XXXX合作社</text>
+          <text class="myTittle_status complete">已接单</text>
+        </view>
+        <view class="signIn_myInput">
+          <text>数量</text>
+          <input class="signIn_input" type="number" placeholder="数量" />
+          <button class="signIn_btn" type="default" size="mini">确认签收鸡仔</button>
+          <view class="signIn_time">
+            <text>供货时间：<text class="signIn_time_in">2018/9/23 20:36</text></text>
+          </view>
+        </view>
+      </view>
+    </panel>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Protype from '../components/protype'
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: '合作社'
+    }
+    components = {
+      protype: Protype
+    }
+
+    data = {
+    }
+
+    computed = {
+    }
+
+    methods = {
+    }
+  }
+</script>

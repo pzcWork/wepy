@@ -23,9 +23,9 @@
     <ul class="container_pro">
       <li @tap='demand'>合作社（需求）</li>
       <li @tap='littleChicken'>鸡苗场</li>
-      <li>合作社（签收）</li>
-      <li>养殖户</li>
-      <li>贸易商</li>
+      <li @tap='signIn'>合作社（签收）</li>
+      <li @tap='farmers'>养殖户</li>
+      <li @tap='traders'>贸易商</li>
       <li>合作社（收款）</li>
       <li @tap='template'>模板</li>
     </ul>
@@ -76,6 +76,21 @@
       template () {
         wepy.navigateTo({
           url: '/pages/template?id=' + 12
+        })
+      },
+      signIn () {
+        wepy.navigateTo({
+          url: '/pages/signIn?id=' + 12
+        })
+      },
+      farmers () {
+        wepy.navigateTo({
+          url: '/pages/farmers?id=' + 12
+        })
+      },
+      traders () {
+        wepy.navigateTo({
+          url: '/pages/traders?id=' + 12
         })
       }
     }

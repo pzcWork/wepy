@@ -193,7 +193,7 @@
 
         promise.then((d) => {
           console.log('toast done')
-      })
+        })
       },
       tap () {
         console.log('do noting from ' + this.$name)
@@ -221,34 +221,34 @@
         }
       },
       counterEmit (...args) {
-    let $event = args[args.length - 1]
-    console.log(`${this.$name} receive ${$event.name} from ${$event.source.$name}`)
-    }
+        let $event = args[args.length - 1]
+        console.log(`${this.$name} receive ${$event.name} from ${$event.source.$name}`)
+      }
     }
 
     events = {
-    'index-emit': (...args) => {
-    let $event = args[args.length - 1]
-    console.log(`${this.$name} receive ${$event.name} from ${$event.source.$name}`)
-    }
+      'index-emit': (...args) => {
+        let $event = args[args.length - 1]
+        console.log(`${this.$name} receive ${$event.name} from ${$event.source.$name}`)
+      }
     }
 
     onLoad() {
-    let self = this
-    this.$parent.getUserInfo(function (userInfo) {
-    if (userInfo) {
-    self.userInfo = userInfo
-    }
-    self.normalTitle = '标题已被修改'
+      let self = this
+      this.$parent.getUserInfo(function (userInfo) {
+        if (userInfo) {
+          self.userInfo = userInfo
+        }
+        self.normalTitle = '标题已被修改'
 
-    self.setTimeoutTitle = '标题三秒后会被修改'
-    setTimeout(() => {
-    self.setTimeoutTitle = '到三秒了'
-    self.$apply()
-    }, 3000)
+        self.setTimeoutTitle = '标题三秒后会被修改'
+        setTimeout(() => {
+          self.setTimeoutTitle = '到三秒了'
+          self.$apply()
+        }, 3000)
 
-    self.$apply()
-    })
+        self.$apply()
+      })
     }
-    }
+  }
 </script>

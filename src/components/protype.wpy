@@ -1,7 +1,7 @@
 <style type="less">
   .mylist, .myTittle{
     background-color: #ffffff;
-    border: 1rpx solid #999999;
+    border: 1rpx solid #409EFF;
     margin-bottom: 20rpx;
     width: 640rpx;
     padding: 30rpx;
@@ -16,8 +16,8 @@
     margin-top: 20rpx;
   }
   .listNameT{
-    margin-left: 182rpx;
-  }
+      margin-left: 182rpx;
+    }
   .listName{
     margin-left: 150rpx;
   }
@@ -37,17 +37,17 @@
 </style>
 <template>
   <view class="group">
-    <block wx:for-items="{{listArr}}" wx:for-index="index" wx:for-item="item" wx:key="id" class="items">
-      <view class="myTittle" wx:if="{{ title }}">
-        <text class="myTittle_com">XXXX合作社</text>
-        <text class="myTittle_status">未接单</text>
-      </view>
-      <view class="mylist">
-        <view><text>走地鸡</text><text class="listName">10</text></view>
-        <view><text>普通鸡</text><text class="listName">90</text></view>
-        <view><text>时间</text><text class="listNameT">2018/04/16 22:47</text></view>
-      </view>
-    </block>
+     <block wx:for-items="{{listArr}}" wx:for-index="index" wx:for-item="item" wx:key="id" class="items">
+       <view class="myTittle" wx:if="{{ tittle }}">
+         <text class="myTittle_com">XXXX合作社</text>
+         <text class="myTittle_status">未接单</text>
+       </view>
+       <view class="mylist">
+         <view><text>走地鸡</text><text class="listName">10</text></view>
+         <view><text>普通鸡</text><text class="listName">90</text></view>
+         <view><text>时间</text><text class="listNameT">2018/04/16 22:47</text></view>
+       </view>
+     </block>
     <view class="listCoin">
 
     </view>
@@ -59,14 +59,18 @@
   export default class Group extends wepy.component {
     data = {
       listArr: [1, 2],
-      title: 1
-    }
+      tittle: false
+    };
     props = {
-    }
+      tittle: String
+    };
 
     components = {
-    }
+    };
     methods = {
+    };
+    onLoad () {
+      console.log(typeof this.tittle)
     }
   }
 </script>

@@ -2,40 +2,25 @@
 </style>
 <template>
   <view class="container">
-    <h1>鸡苗场</h1>
     <panel>
-      <protype></protype>
+      <protype tittle='1'></protype>
     </panel>
   </view>
 </template>
 
 <script>
   import wepy from 'wepy'
-  import { connect } from 'wepy-redux'
-  import testMixin from '../mixins/test'
   import Protype from '../components/protype'
-  @connect({
-    num (state) {
-      return state.counter.num
-    },
-    asyncNum (state) {
-      return state.counter.asyncNum
-    },
-    sumNum (state) {
-      return state.counter.num + state.counter.asyncNum
-    }
-  })
   export default class Index extends wepy.page {
     config = {
-      navigationBarTitleText: '中科院视频安全防伪追溯系统'
+      navigationBarTitleText: '鸡苗场'
     }
     components = {
       protype: Protype
     }
 
-    mixins = [testMixin]
-
     data = {
+      title: 1
     }
 
     computed = {
