@@ -4,7 +4,7 @@
 <template>
   <view class="container">
     <panel>
-      <comfirmDetail></comfirmDetail>
+      <comfirmDetail tittle='3'></comfirmDetail>
 
     </panel>
   </view>
@@ -22,7 +22,6 @@
     }
 
     data = {
-      title: 1
     }
 
     computed = {

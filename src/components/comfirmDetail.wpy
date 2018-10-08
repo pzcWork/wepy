@@ -84,7 +84,7 @@
 
     <view class="com_status">
       <view class="com_most_tittle">当前状态</view>
-      <block wx:for-items="{{statusArr}}" wx:for-index="index" wx:for-item="item" wx:key="id" class="items">
+      <block wx:for-items="{{ statusArr }}" wx:for-index="index" wx:for-item="item" wx:key="id" class="items">
         <view class="status_item">
           <view class="status_item_date">2018/11/23</view>
           <view>
@@ -102,7 +102,7 @@
 
   export default class Group extends wepy.component {
     data = {
-      statusArr:[0, 1, 2, 3, 4, 5, 6]
+      statusArr: [0, 1, 2, 3, 4, 5, 6]
     };
     props = {
     };
@@ -112,7 +112,8 @@
     methods = {
     };
     onLoad () {
-      console.log(typeof this.tittle)
+      console.log(this.tittle)
+      console.log('11111')
     }
   }
 </script>

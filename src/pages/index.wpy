@@ -94,5 +94,26 @@
         })
       }
     }
+    async onLoad () {
+      console.log('111111')
+//      wepy.request({
+//        url: "http://202.104.110.153:8080/sysring/user/log",
+//        data: {
+//          username: 'lianzhong',
+//          password: 'lianzhong2018#',
+//          type: 2
+//        },
+//        method: 'POST',
+//        success: function (d) {
+//          console.log(d)
+//        }
+//      }).then((d) => console.log(d));
+      wepy.request({
+        url: 'http://202.104.110.153:8080/sysring/role/getall',
+        success: function (d) {
+          console.log(d)
+        }
+      })
+    }
   }
 </script>
